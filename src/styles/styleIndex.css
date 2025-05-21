@@ -9,8 +9,9 @@ body {
     display: flex;
     height: 100vh;
 }
+/* Barra lateral */
 .sidebar {
-    width: 240px;
+    width: 10%; /* Siempre ocupa el 10% del ancho de la pantalla */
     background-color: #2e7d32; /* Verde principal */
     color: white;
     padding: 30px 20px;
@@ -20,17 +21,77 @@ body {
     left: 0;
     box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    transition: transform 0.3s ease; /* Solo la propiedad transform para la transición */
+    transition: transform 0.3s ease;
 }
+
+/* Media query para pantallas pequeñas (hasta 768px) */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 10%; /* Mantiene el 10% de ancho en pantallas más pequeñas */
+        padding: 20px 15px; /* Reduce el padding */
+    }
+
+    .sidebar h2 {
+        font-size: 24px; /* Ajusta el tamaño del encabezado */
+        margin-bottom: 15px; /* Ajusta el margen inferior */
+    }
+
+    .sidebar ul li {
+        padding: 10px 15px; /* Ajusta el padding de los elementos de la lista */
+        font-size: 16px; /* Ajusta el tamaño de la fuente */
+    }
+
+    .sidebar ul li a {
+        font-size: 16px; /* Ajusta el tamaño de la fuente de los enlaces */
+    }
+
+    .sidebar ul li a i {
+        margin-right: 10px; /* Ajusta el margen entre el ícono y el texto */
+    }
+}
+
+/* Media query para pantallas muy pequeñas (hasta 480px) */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 10%; /* Mantiene el 10% de ancho en pantallas muy pequeñas */
+        height: 100%; /* Asegura que la barra lateral ocupe toda la altura */
+        top: 0;
+        bottom: 0;
+        box-shadow: none; /* Elimina la sombra */
+    }
+
+    .sidebar h2 {
+        font-size: 20px; /* Ajusta el tamaño del encabezado */
+    }
+
+    .sidebar ul li {
+        padding: 8px 12px; /* Ajusta el padding de los elementos de la lista */
+        font-size: 14px; /* Ajusta el tamaño de la fuente */
+    }
+
+    .sidebar ul li a {
+        font-size: 14px; /* Ajusta el tamaño de la fuente de los enlaces */
+    }
+
+    .sidebar ul li a i {
+        margin-right: 8px; /* Ajusta el margen entre el ícono y el texto */
+    }
+}
+
+/* Estilos del encabezado dentro de la barra lateral */
 .sidebar h2 {
     font-size: 28px;
     font-weight: 700;
     text-align: center;
     margin-bottom: 20px;
 }
+
+/* Estilos de la lista */
 .sidebar ul {
     list-style: none;
+    padding: 0;
 }
+
 .sidebar ul li {
     padding: 12px 20px;
     margin-bottom: 10px;
@@ -38,34 +99,42 @@ body {
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 .sidebar ul li a {
     text-decoration: none;
     color: white;
     font-size: 18px;
     display: flex;
     align-items: center;
-    transition: color 0.3s ease; /* Transición suave para el color */
+    transition: color 0.3s ease;
 }
+
 .sidebar ul li a i {
-    margin-right: 15px; /* Aumentamos el espacio entre el ícono y el texto */
+    margin-right: 15px; /* Aumenta el espacio entre el ícono y el texto */
 }
+
 .sidebar ul li:hover {
     background-color: #388e3c; /* Verde más oscuro */
     transform: translateX(10px); /* Desplazamiento hacia la derecha */
 }
+
 .sidebar ul li a:hover {
     color: #f1f1f1; /* Cambia el color del texto al pasar el ratón */
 }
+
 .sidebar ul li.active {
     background-color: #1b5e20; /* Verde más oscuro para la opción activa */
 }
+
 .sidebar ul li.active a {
     color: #f1f1f1; /* Color de texto claro para la opción activa */
 }
+
 .container {
     display: flex;
     width: 100%;
 }
+
 #mainContent {
     font-family: 'Arial', sans-serif;
     display: flex;
@@ -80,6 +149,7 @@ body {
     padding-top: 50px; /* Añadí un poco de espacio en la parte superior */
     overflow: hidden;
 }
+
 section {
     text-align: center;
     max-width: 800px;
@@ -91,26 +161,31 @@ section {
     padding: 30px;
     margin: 0 auto; /* Centra el contenido */
 }
+
 h1 {
     font-size: 28px;
     color: #388e3c;
 }
+
 p {
     font-size: 18px;
     color: #388e3c;
 }
+
 form {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-top: 20px;
 }
+
 form input {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 100%;
 }
+
 .form-input {
     padding: 10px;
     border: 1px solid #ccc;
@@ -119,6 +194,7 @@ form input {
     box-sizing: border-box;
     margin-bottom: 10px; /* Espacio entre los campos de entrada */
 }
+
 form button {
     background: linear-gradient(45deg, #34b233, #1e7e34); /* Gradiente verde con más contraste */
     color: white;
@@ -130,57 +206,136 @@ form button {
     font-weight: bold;
     transition: all 0.3s;
 }
+
 form button:hover {
     background: linear-gradient(45deg, #1e7e34, #34b233); /* Gradiente invertido para el hover */
     transform: scale(1.05);
 }
+
 form button:active {
     background: linear-gradient(45deg, #1b5d2f, #1e7e34); /* Gradiente más oscuro para el estado activo */
     transform: scale(0.98);
 }
+
 form fieldset {
-  border: 2px solid #28a745; /* Establece el borde alrededor del fieldset */
-  border-radius: 8px; /* Bordes redondeados para el fieldset */
-  padding: 20px; /* Espaciado interno para que el contenido no quede pegado al borde */
-  background-color: #ffffff; /* Fondo blanco para el fieldset */
-  margin: 0; /* Elimina márgenes innecesarios */
-  width: 100%; /* Asegura que el fieldset ocupe el 100% del ancho disponible */
+    border: 2px solid #28a745; /* Establece el borde alrededor del fieldset */
+    border-radius: 8px; /* Bordes redondeados para el fieldset */
+    padding: 20px; /* Espaciado interno para que el contenido no quede pegado al borde */
+    background-color: #ffffff; /* Fondo blanco para el fieldset */
+    margin: 0; /* Elimina márgenes innecesarios */
+    width: 100%; /* Asegura que el fieldset ocupe el 100% del ancho disponible */
 }
+
 form fieldset legend {
-  font-size: 20px; /* Tamaño de la fuente del título */
-  font-weight: bold; /* Negrita para el título */
-  color: #28a745; /* Color del texto */
-  margin-bottom: 15px; /* Espacio entre el título y los campos */
+    font-size: 20px; /* Tamaño de la fuente del título */
+    font-weight: bold; /* Negrita para el título */
+    color: #28a745; /* Color del texto */
+    margin-bottom: 15px; /* Espacio entre el título y los campos */
 }
+
 form fieldset label {
-  font-size: 16px; /* Tamaño de la fuente de las etiquetas */
-  color: #333; /* Color de las etiquetas */
-  margin-bottom: 5px; /* Espacio entre la etiqueta y el campo de entrada */
+    font-size: 16px; /* Tamaño de la fuente de las etiquetas */
+    color: #333; /* Color de las etiquetas */
+    margin-bottom: 5px; /* Espacio entre la etiqueta y el campo de entrada */
 }
+
 form fieldset input {
-  padding: 10px; /* Espaciado dentro del campo de entrada */
-  border: 1px solid #ccc; /* Borde gris para los campos */
-  border-radius: 4px; /* Bordes redondeados para los inputs */
-  width: 100%; /* Hace que los inputs ocupen todo el ancho del fieldset */
-  box-sizing: border-box; /* Incluye el padding y el borde dentro del ancho del input */
-  margin-bottom: 10px; /* Espacio entre los campos de entrada */
+    padding: 10px; /* Espaciado dentro del campo de entrada */
+    border: 1px solid #ccc; /* Borde gris para los campos */
+    border-radius: 4px; /* Bordes redondeados para los inputs */
+    width: 100%; /* Hace que los inputs ocupen todo el ancho del fieldset */
+    box-sizing: border-box; /* Incluye el padding y el borde dentro del ancho del input */
+    margin-bottom: 10px; /* Espacio entre los campos de entrada */
 }
+
 form fieldset button {
-  padding: 10px 15px; /* Espaciado interno del botón */
-  background-color: #2e7d32; /* Color de fondo del botón */
-  color: white; /* Color del texto del botón */
-  border: none; /* Elimina el borde por defecto */
-  border-radius: 4px; /* Bordes redondeados para el botón */
-  cursor: pointer; /* Cambia el cursor a mano al pasar por encima */
-  transition: background-color 0.3s ease; /* Transición suave para el hover */
-  font-size: 16px; /* Tamaño de la fuente */
+    padding: 10px 15px; /* Espaciado interno del botón */
+    background-color: #2e7d32; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Elimina el borde por defecto */
+    border-radius: 4px; /* Bordes redondeados para el botón */
+    cursor: pointer; /* Cambia el cursor a mano al pasar por encima */
+    transition: background-color 0.3s ease; /* Transición suave para el hover */
+    font-size: 16px; /* Tamaño de la fuente */
 }
+
 form fieldset button:hover {
-  background-color: #388e3c; /* Cambia el color al hacer hover */
+    background-color: #388e3c; /* Cambia el color al hacer hover */
 }
+
 form fieldset > * {
-  margin-bottom: 10px; /* Añade un margen entre los elementos dentro del fieldset */
+    margin-bottom: 10px; /* Añade un margen entre los elementos dentro del fieldset */
 }
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    #mainContent {
+        padding: 30px 15px; /* Reduce el padding en pantallas pequeñas */
+        flex-direction: column;
+        min-height: auto; /* No necesita altura mínima en pantallas pequeñas */
+    }
+
+    section {
+        padding: 20px; /* Reduce el padding en secciones */
+    }
+
+    h1 {
+        font-size: 24px; /* Reduce el tamaño de la fuente en pantallas pequeñas */
+    }
+
+    p {
+        font-size: 16px; /* Ajusta el tamaño del texto */
+    }
+
+    form input {
+        font-size: 16px; /* Reduce el tamaño de la fuente de los inputs */
+    }
+
+    form button {
+        padding: 10px 20px; /* Ajusta el padding del botón */
+        font-size: 16px; /* Ajusta el tamaño de la fuente del botón */
+    }
+
+    form fieldset {
+        padding: 15px; /* Reduce el padding en el fieldset */
+    }
+
+    form fieldset button {
+        font-size: 14px; /* Ajusta el tamaño de la fuente del botón dentro del fieldset */
+    }
+}
+
+@media (max-width: 480px) {
+    #mainContent {
+        padding: 20px 10px; /* Reduce aún más el padding */
+    }
+
+    section {
+        padding: 15px; /* Reduce el padding en pantallas pequeñas */
+    }
+
+    h1 {
+        font-size: 20px; /* Reduce aún más el tamaño de la fuente */
+    }
+
+    p {
+        font-size: 14px; /* Ajusta el tamaño del texto para móviles muy pequeños */
+    }
+
+    form button {
+        padding: 8px 16px; /* Ajusta el padding del botón para móviles */
+        font-size: 14px; /* Ajusta el tamaño de la fuente del botón */
+    }
+
+    form fieldset {
+        padding: 10px; /* Reduce el padding en el fieldset */
+    }
+
+    form input, form fieldset input {
+        font-size: 14px; /* Ajusta el tamaño de la fuente de los inputs */
+    }
+}
+
 .shortcut-section {
   margin-top: 20px;
   padding: 20px;
@@ -188,11 +343,13 @@ form fieldset > * {
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 .shortcut-section ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
+
 .shortcut-section li {
   display: flex;
   justify-content: space-between;
@@ -205,10 +362,12 @@ form fieldset > * {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
 .shortcut-section li:hover {
   background-color: #f1f1f1;
   transform: translateY(-2px);
 }
+
 .shortcut-section li a {
   text-decoration: none;
   color: #007bff;
@@ -216,9 +375,11 @@ form fieldset > * {
   font-weight: 500;
   transition: color 0.3s ease;
 }
+
 .shortcut-section li a:hover {
   color: #0056b3;
 }
+
 .shortcut-section button {
   background-color: #ff4d4d;
   color: white;
@@ -229,21 +390,25 @@ form fieldset > * {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .shortcut-section button:hover {
   background-color: #e03e3e;
 }
+
 .shortcut-section form {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-top: 20px;
 }
+
 .shortcut-section input {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 100%;
 }
+
 .shortcut-section button.add-shortcut-btn {
   padding: 10px 15px;
   background-color: #007bff;
@@ -254,9 +419,69 @@ form fieldset > * {
   font-size: 14px;
   transition: background-color 0.3s ease;
 }
+
 .shortcut-section button.add-shortcut-btn:hover {
   background-color: #0056b3;
 }
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .shortcut-section {
+    padding: 15px; /* Reduce el padding en pantallas pequeñas */
+  }
+
+  .shortcut-section li {
+    padding: 8px; /* Reduce el padding de los elementos de la lista */
+  }
+
+  .shortcut-section li a {
+    font-size: 14px; /* Ajusta el tamaño de la fuente en pantallas más pequeñas */
+  }
+
+  .shortcut-section button {
+    padding: 6px 10px; /* Ajusta el padding del botón */
+    font-size: 12px; /* Ajusta el tamaño de la fuente del botón */
+  }
+
+  .shortcut-section button.add-shortcut-btn {
+    padding: 8px 12px; /* Ajusta el padding del botón en el formulario */
+    font-size: 12px; /* Ajusta el tamaño de la fuente del botón en el formulario */
+  }
+
+  .shortcut-section input {
+    font-size: 14px; /* Ajusta el tamaño de la fuente de los campos de entrada */
+  }
+}
+
+/* Media Query para pantallas muy pequeñas (móviles) */
+@media (max-width: 480px) {
+  .shortcut-section {
+    padding: 10px; /* Reduce más el padding */
+  }
+
+  .shortcut-section li {
+    padding: 6px; /* Ajusta el padding en pantallas muy pequeñas */
+  }
+
+  .shortcut-section li a {
+    font-size: 12px; /* Reduce el tamaño de la fuente de los enlaces */
+  }
+
+  .shortcut-section button {
+    padding: 5px 8px; /* Ajusta el padding de los botones */
+    font-size: 10px; /* Reduce el tamaño de la fuente de los botones */
+  }
+
+  .shortcut-section button.add-shortcut-btn {
+    padding: 6px 10px; /* Ajusta el padding de los botones del formulario */
+    font-size: 10px; /* Reduce el tamaño de la fuente de los botones del formulario */
+  }
+
+  .shortcut-section input {
+    font-size: 12px; /* Reduce el tamaño de la fuente de los campos de entrada */
+  }
+}
+
 #proximamenteSection {
   min-height: 100vh;
   overflow: visible;
@@ -265,12 +490,14 @@ form fieldset > * {
   display: flex;
   flex-direction: column;
 }
+
 #proximamenteTitle {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 20px;
   color: #388e3c;
 }
+
 .proximamente-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -280,6 +507,7 @@ form fieldset > * {
   margin-top: 0;
   overflow: auto;
 }
+
 .item {
   width: 100%;
   background-color: #f9f9f9;
@@ -289,26 +517,31 @@ form fieldset > * {
   margin-bottom: 20px;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
+
 .item:hover {
   transform: translateY(-8px);
   background-color: #e0f7e3;
 }
+
 .item-icon {
   font-size: 2rem;
   margin-right: 10px;
 }
+
 .item-title {
   font-size: 20px;
   color: #388e3c;
   margin-bottom: 10px;
   display: block;
 }
+
 .item-description {
   font-size: 16px;
   color: #333;
   line-height: 1.5;
   margin-top: 10px;
 }
+
 .footer {
   width: 100%; /* Ocupa todo el ancho de la página */
   background-color: #2e7d32; /* Color de fondo */
@@ -320,32 +553,102 @@ form fieldset > * {
   text-align: center; /* Centra el contenido dentro del footer */
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Agrega una sombra sutil en la parte superior */
 }
+
 .footer-content {
   display: flex;
   flex-direction: column;
   align-items: center; /* Centra el contenido dentro */
 }
+
 .footer-content p {
   color: white;
   font-size: 14px; /* Tamaño de la fuente */
 }
+
 .footer-links {
   list-style: none; /* Elimina los puntos de la lista */
   display: flex;
   gap: 20px; /* Espaciado entre los enlaces */
   padding: 0; /* Elimina el padding por defecto */
 }
+
 .footer-links li {
   display: inline-block;
 }
+
 .footer-links a {
   color: white; /* Color de los enlaces */
   text-decoration: none; /* Elimina subrayado */
   font-size: 14px; /* Tamaño de la fuente */
 }
+
 .footer-links a:hover {
   text-decoration: underline; /* Subraya los enlaces al pasar el mouse */
 }
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+  #proximamenteTitle {
+    font-size: 1.6rem; /* Reduce el tamaño del título en pantallas pequeñas */
+  }
+
+  .proximamente-list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ajusta el tamaño de las columnas */
+    gap: 15px; /* Reduce el espacio entre los elementos */
+  }
+
+  .item {
+    padding: 15px; /* Reduce el padding de los elementos */
+  }
+
+  .item-title {
+    font-size: 18px; /* Reduce el tamaño del título dentro del item */
+  }
+
+  .item-description {
+    font-size: 14px; /* Reduce el tamaño de la descripción */
+  }
+
+  .footer-content p {
+    font-size: 12px; /* Ajusta el tamaño de la fuente en el footer */
+  }
+
+  .footer-links a {
+    font-size: 12px; /* Ajusta el tamaño de la fuente de los enlaces */
+  }
+}
+
+/* Media Query para pantallas muy pequeñas (móviles) */
+@media (max-width: 480px) {
+  #proximamenteTitle {
+    font-size: 1.4rem; /* Reduce aún más el tamaño del título */
+  }
+
+  .proximamente-list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Hace las columnas más pequeñas */
+  }
+
+  .item {
+    padding: 10px; /* Reduce el padding de los elementos aún más */
+  }
+
+  .item-title {
+    font-size: 16px; /* Reduce el tamaño del título dentro del item */
+  }
+
+  .item-description {
+    font-size: 12px; /* Reduce el tamaño de la descripción */
+  }
+
+  .footer-content p {
+    font-size: 10px; /* Ajusta el tamaño de la fuente en el footer */
+  }
+
+  .footer-links a {
+    font-size: 10px; /* Ajusta el tamaño de la fuente de los enlaces */
+  }
+}
+
 select {
     background-color: #fff; /* Fondo blanco para el select */
     color: #333; /* Texto oscuro */
@@ -358,20 +661,24 @@ select {
     transition: border-color 0.3s, box-shadow 0.3s;
     width: 100%; /* Ajusta el ancho para que ocupe todo el espacio disponible */
 }
+
 select:focus {
     border-color: #218838; /* Borde verde más oscuro al enfocar */
     box-shadow: 0 0 5px rgba(40, 167, 69, 0.4); /* Sombra sutil al enfocar */
 }
+
 option {
     background-color: #fff; /* Fondo blanco */
     color: #333; /* Texto oscuro */
     padding: 10px; /* Espaciado para las opciones */
     font-size: 16px; /* Tamaño de fuente */
 }
+
 option:hover {
     background-color: #28a745; /* Fondo verde al pasar el mouse */
     color: white; /* Texto blanco cuando se pasa el mouse */
 }
+
 textarea {
     background-color: #fff; /* Fondo blanco */
     color: #333; /* Texto oscuro */
@@ -385,19 +692,23 @@ textarea {
     transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave */
     box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
 }
+
 textarea:focus {
     border-color: #218838; /* Borde verde más oscuro al enfocar */
     box-shadow: 0 0 5px rgba(40, 167, 69, 0.4); /* Sombra sutil al enfocar */
     outline: none; /* Elimina el borde azul por defecto */
 }
+
 textarea.error {
     border-color: #dc3545; /* Borde rojo si hay error */
     box-shadow: 0 0 5px rgba(220, 53, 69, 0.4); /* Sombra roja para el error */
 }
+
 textarea::placeholder {
     color: #aaa; /* Texto gris para el placeholder */
     font-style: italic; /* Itálico para el placeholder */
 }
+
 input[type="text"] {
     background-color: #fff; /* Fondo blanco */
     color: #333; /* Texto oscuro */
@@ -409,18 +720,53 @@ input[type="text"] {
     transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave */
     box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
 }
+
 input[type="text"]:focus {
     border-color: #218838; /* Borde verde más oscuro al enfocar */
     box-shadow: 0 0 5px rgba(40, 167, 69, 0.4); /* Sombra sutil al enfocar */
     outline: none; /* Elimina el borde azul por defecto */
 }
+
 input[type="text"].error {
     border-color: #dc3545; /* Borde rojo si hay error */
     box-shadow: 0 0 5px rgba(220, 53, 69, 0.4); /* Sombra roja para el error */
 }
+
 input[type="text"]::placeholder {
     color: #aaa; /* Texto gris para el placeholder */
     font-style: italic; /* Itálico para el placeholder */
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    select, textarea, input[type="text"] {
+        font-size: 14px; /* Reduce el tamaño de la fuente en pantallas pequeñas */
+        padding: 8px 12px; /* Ajusta el padding para mayor comodidad */
+    }
+
+    textarea {
+        min-height: 100px; /* Reduce la altura mínima del textarea */
+    }
+}
+
+/* Media Query para dispositivos muy pequeños (móviles) */
+@media (max-width: 480px) {
+    select, textarea, input[type="text"] {
+        font-size: 14px; /* Ajuste de tamaño de fuente */
+        padding: 8px 12px; /* Ajuste del padding */
+    }
+
+    textarea {
+        min-height: 80px; /* Ajusta la altura mínima de textarea */
+    }
+
+    input[type="text"] {
+        font-size: 14px; /* Ajusta el tamaño de la fuente del input */
+    }
+
+    select {
+        font-size: 14px; /* Ajusta el tamaño de la fuente del select */
+    }
 }
 #billetera {
     background-color: #fff; /* Fondo blanco para la billetera */
@@ -430,6 +776,7 @@ input[type="text"]::placeholder {
     max-width: 1200px;
     margin: 0 auto; /* Centrar el componente */
 }
+
 #billetera h1 {
     font-size: 32px;
     font-weight: bold;
@@ -437,11 +784,13 @@ input[type="text"]::placeholder {
     text-align: center; /* Título centrado */
     margin-bottom: 20px;
 }
+
 .billetera-container {
     display: flex;
     justify-content: space-between; /* Coloca las columnas a los extremos */
     gap: 20px; /* Espacio entre las columnas */
 }
+
 .ventas, .compras {
     background-color: #f9f9f9; /* Fondo gris claro */
     padding: 20px;
@@ -449,6 +798,7 @@ input[type="text"]::placeholder {
     flex: 1; /* Toma el mismo tamaño */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para las columnas */
 }
+
 .ventas h2, .compras h2 {
     font-size: 24px;
     font-weight: 600;
@@ -456,11 +806,13 @@ input[type="text"]::placeholder {
     margin-bottom: 15px;
     text-align: center; /* Centrado */
 }
+
 .ventas ul, .compras ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
+
 .ventas ul li, .compras ul li {
     padding: 10px;
     background-color: #fff;
@@ -469,9 +821,11 @@ input[type="text"]::placeholder {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
 }
+
 .ventas ul li:hover, .compras ul li:hover {
     background-color: #e0f7e3; /* Verde muy claro al pasar el ratón */
 }
+
 button {
     background-color: #28a745; /* Verde */
     color: white;
@@ -482,9 +836,11 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 button:hover {
     background-color: #218838; /* Verde más oscuro al pasar el ratón */
 }
+
 h2 {
     font-size: 32px;
     font-weight: bold;
@@ -492,6 +848,7 @@ h2 {
     text-align: center;
     margin-bottom: 30px;
 }
+
 #notificacionLabel {
   color: #388e3c; /* Verde oscuro */
   font-size: 1.2rem;
@@ -499,6 +856,7 @@ h2 {
   margin-bottom: 10px;
   display: block; /* Asegura que el texto esté en su propia línea */
 }
+
 #notificacionInput {
   background-color: #e8f5e9; /* Fondo verde claro */
   border: 1px solid #388e3c; /* Borde verde oscuro */
@@ -509,11 +867,13 @@ h2 {
   width: 100%; /* Se ajusta al tamaño del contenedor */
   margin-bottom: 20px; /* Espacio debajo del input */
 }
+
 #notificacionInput:focus {
   background-color: #c8e6c9; /* Fondo verde más claro cuando está enfocado */
   border-color: #2e7d32; /* Borde verde más oscuro */
   outline: none; /* Elimina el borde azul predeterminado en el foco */
 }
+
 #saveNotificationButton {
   background-color: #388e3c; /* Verde oscuro */
   color: white; /* Texto blanco */
@@ -524,8 +884,79 @@ h2 {
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
+
 #saveNotificationButton:hover {
   background-color: #2e7d32; /* Verde más oscuro en hover */
+}
+
+/* Media Queries para hacerlo responsive */
+
+/* Dispositivos pequeños y tablets (máximo 768px de ancho) */
+@media (max-width: 768px) {
+    #billetera {
+        padding: 20px;
+    }
+
+    .billetera-container {
+        flex-direction: column; /* Coloca las columnas en vertical */
+        gap: 15px; /* Reduce el espacio entre las columnas */
+    }
+
+    .ventas, .compras {
+        flex: none; /* Quita la flexibilidad para las columnas */
+        width: 100%; /* Asegura que ocupen todo el ancho disponible */
+    }
+
+    h1 {
+        font-size: 28px; /* Reduce el tamaño del título */
+    }
+
+    h2 {
+        font-size: 28px; /* Reduce el tamaño de los subtítulos */
+    }
+
+    #notificacionLabel {
+        font-size: 1.1rem; /* Reduce el tamaño del label */
+    }
+
+    #notificacionInput {
+        font-size: 0.9rem; /* Reduce el tamaño del input */
+    }
+
+    #saveNotificationButton {
+        font-size: 0.9rem; /* Reduce el tamaño del botón */
+    }
+}
+
+/* Dispositivos pequeños (máximo 480px de ancho) */
+@media (max-width: 480px) {
+    #billetera {
+        padding: 15px;
+    }
+
+    .ventas, .compras {
+        padding: 15px; /* Reduce el padding de las columnas */
+    }
+
+    h1 {
+        font-size: 24px; /* Ajusta el tamaño del título */
+    }
+
+    h2 {
+        font-size: 24px; /* Ajusta el tamaño de los subtítulos */
+    }
+
+    #notificacionLabel {
+        font-size: 1rem; /* Ajusta el tamaño del label */
+    }
+
+    #notificacionInput {
+        font-size: 0.85rem; /* Ajusta el tamaño del input */
+    }
+
+    #saveNotificationButton {
+        font-size: 0.85rem; /* Ajusta el tamaño del botón */
+    }
 }
 #mensajesForm {
   background-color: #f0f9f4; /* Fondo verde claro */
@@ -536,6 +967,7 @@ h2 {
   margin: 20px auto; /* Centrado en el contenedor */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor */
 }
+
 #mensajesLegend {
   font-size: 1.5rem;
   font-weight: bold;
@@ -543,12 +975,14 @@ h2 {
   margin-bottom: 15px;
   text-align: center;
 }
+
 #mensajeLabel, #destinatarioLabel {
   font-size: 1.1rem;
   color: #388e3c;
   margin-bottom: 5px;
   display: block;
 }
+
 #mensajeInput {
   width: 100%;
   height: 120px;
@@ -560,11 +994,13 @@ h2 {
   color: #388e3c;
   transition: all 0.3s ease;
 }
+
 #mensajeInput:focus {
   border-color: #2e7d32; /* Borde verde más oscuro en focus */
   outline: none;
   background-color: #c8e6c9; /* Fondo verde más claro */
 }
+
 #destinatarioSelect {
   width: 100%;
   padding: 10px;
@@ -575,11 +1011,13 @@ h2 {
   color: #388e3c;
   transition: all 0.3s ease;
 }
+
 #destinatarioSelect:focus {
   border-color: #2e7d32; /* Borde verde más oscuro en focus */
   outline: none;
   background-color: #c8e6c9; /* Fondo verde más claro */
 }
+
 #submitButton {
   background-color: #388e3c; /* Verde oscuro */
   color: white;
@@ -591,15 +1029,19 @@ h2 {
   width: 100%;
   transition: background-color 0.3s ease;
 }
+
 #submitButton:hover {
   background-color: #2e7d32; /* Verde más oscuro en hover */
 }
+
 input, select, textarea {
   margin-bottom: 15px; /* Separación entre los elementos */
 }
+
 input:focus, select:focus, textarea:focus {
   box-shadow: 0 0 8px rgba(0, 150, 136, 0.5); /* Sombra suave en el foco */
 }
+
 #comprasForm {
   background-color: #f0f9f4; /* Fondo verde claro */
   padding: 20px;
@@ -609,6 +1051,7 @@ input:focus, select:focus, textarea:focus {
   margin: 20px auto; /* Centrado en el contenedor */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor */
 }
+
 #comprasLegend {
   font-size: 1.5rem;
   font-weight: bold;
@@ -616,13 +1059,66 @@ input:focus, select:focus, textarea:focus {
   margin-bottom: 15px;
   text-align: center;
 }
+
+/* Media Queries para hacerlo responsive */
+
+/* Dispositivos pequeños y tablets (máximo 768px de ancho) */
+@media (max-width: 768px) {
+  #mensajesForm, #comprasForm {
+    padding: 15px;
+    max-width: 100%; /* El formulario ocupa todo el ancho disponible */
+  }
+
+  #mensajesLegend, #comprasLegend {
+    font-size: 1.3rem; /* Reducimos el tamaño del legend */
+  }
+
+  #mensajeLabel, #destinatarioLabel {
+    font-size: 1rem; /* Ajustamos el tamaño de las etiquetas */
+  }
+
+  #mensajeInput, #destinatarioSelect {
+    font-size: 0.95rem; /* Ajustamos el tamaño de los inputs */
+  }
+
+  #submitButton {
+    font-size: 1rem; /* Ajustamos el tamaño del botón */
+  }
+}
+
+/* Dispositivos muy pequeños (máximo 480px de ancho) */
+@media (max-width: 480px) {
+  #mensajesForm, #comprasForm {
+    padding: 10px;
+    max-width: 100%; /* Asegura que ocupe el ancho completo */
+  }
+
+  #mensajesLegend, #comprasLegend {
+    font-size: 1.2rem; /* Ajuste para pantallas muy pequeñas */
+  }
+
+  #mensajeLabel, #destinatarioLabel {
+    font-size: 0.9rem; /* Reducimos el tamaño de las etiquetas */
+  }
+
+  #mensajeInput, #destinatarioSelect {
+    font-size: 0.9rem; /* Ajustamos los campos de texto */
+  }
+
+  #submitButton {
+    font-size: 0.9rem; /* Reducimos el tamaño del botón */
+  }
+}
+/* Etiquetas de productos, cantidad y precio */
 #productoLabel, #cantidadLabel, #precioLabel {
   font-size: 1.1rem;
-  color: #388e3c;
+  color: #388e3c; /* Verde oscuro */
   margin-bottom: 5px;
   display: block;
 }
-.input-field {
+
+/* Estilo de los campos de entrada (producto, cantidad, precio) */
+.input-field, .form-input {
   width: 100%;
   padding: 10px;
   font-size: 1rem;
@@ -633,12 +1129,16 @@ input:focus, select:focus, textarea:focus {
   transition: all 0.3s ease;
   margin-bottom: 15px; /* Separación entre los campos */
 }
-.input-field:focus {
+
+/* Estilo de los campos de entrada cuando están enfocados */
+.input-field:focus, .form-input:focus {
   border-color: #2e7d32; /* Borde verde más oscuro en focus */
   outline: none;
   background-color: #c8e6c9; /* Fondo verde más claro */
 }
-#comprasSubmitButton {
+
+/* Botón para enviar el formulario de compras */
+#comprasSubmitButton, #submitVentaButton {
   background-color: #388e3c; /* Verde oscuro */
   color: white;
   border: none;
@@ -649,9 +1149,33 @@ input:focus, select:focus, textarea:focus {
   width: 100%;
   transition: background-color 0.3s ease;
 }
-#comprasSubmitButton:hover {
+
+/* Efecto hover en los botones */
+#comprasSubmitButton:hover, #submitVentaButton:hover {
   background-color: #2e7d32; /* Verde más oscuro en hover */
 }
+
+/* Formulario de compras */
+#comprasForm {
+  background-color: #f0f9f4; /* Fondo verde claro */
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px; /* Máxima anchura */
+  margin: 20px auto; /* Centrado en el contenedor */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor */
+}
+
+/* Título del formulario de compras */
+#comprasLegend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #388e3c; /* Verde oscuro */
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Formulario de ventas */
 #ventasForm {
   background-color: #f0f9f4; /* Fondo verde claro */
   padding: 20px;
@@ -661,6 +1185,8 @@ input:focus, select:focus, textarea:focus {
   margin: 20px auto; /* Centrado en el contenedor */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor */
 }
+
+/* Título del formulario de ventas */
 #ventasFormLegend {
   font-size: 1.5rem;
   font-weight: bold;
@@ -668,79 +1194,110 @@ input:focus, select:focus, textarea:focus {
   margin-bottom: 15px;
   text-align: center;
 }
-#productoLabel, #cantidadLabel, #precioLabel {
-  font-size: 1.1rem;
-  color: #388e3c;
-  margin-bottom: 5px;
-  display: block;
-}
-.form-input {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #388e3c; /* Borde verde */
-  background-color: #e8f5e9; /* Fondo verde claro */
-  color: #388e3c;
-  transition: all 0.3s ease;
-  margin-bottom: 15px; /* Separación entre los campos */
-}
-.form-input:focus {
-  border-color: #2e7d32; /* Borde verde más oscuro en focus */
-  outline: none;
-  background-color: #c8e6c9; /* Fondo verde más claro */
-}
-#submitVentaButton {
-  background-color: #388e3c; /* Verde oscuro */
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  font-size: 1.1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s ease;
-}
-#submitVentaButton:hover {
-  background-color: #2e7d32; /* Verde más oscuro en hover */
-}
+
+/* Media Queries para hacerlo más responsive */
+
+/* Dispositivos pequeños y tablets (máximo 768px de ancho) */
 @media (max-width: 768px) {
+  /* Formularios de compras y ventas */
+  #comprasForm, #ventasForm {
+    padding: 15px;
+    max-width: 100%; /* El formulario ocupa todo el ancho disponible */
+  }
+
+  /* Títulos de formularios */
+  #comprasLegend, #ventasFormLegend {
+    font-size: 1.3rem; /* Reducimos el tamaño del título */
+  }
+
+  /* Etiquetas */
+  #productoLabel, #cantidadLabel, #precioLabel {
+    font-size: 1rem; /* Ajustamos el tamaño de las etiquetas */
+  }
+
+  /* Campos de texto */
+  .input-field, .form-input {
+    font-size: 0.95rem; /* Reducimos el tamaño de los campos de entrada */
+  }
+
+  /* Botones */
+  #comprasSubmitButton, #submitVentaButton {
+    font-size: 1rem; /* Ajustamos el tamaño del botón */
+  }
+}
+
+/* Dispositivos muy pequeños (máximo 480px de ancho) */
+@media (max-width: 480px) {
+  /* Formularios de compras y ventas */
+  #comprasForm, #ventasForm {
+    padding: 10px;
+    max-width: 100%; /* El formulario ocupa todo el ancho disponible */
+  }
+
+  /* Títulos de formularios */
+  #comprasLegend, #ventasFormLegend {
+    font-size: 1.2rem; /* Ajuste para pantallas muy pequeñas */
+  }
+
+  /* Etiquetas */
+  #productoLabel, #cantidadLabel, #precioLabel {
+    font-size: 0.9rem; /* Reducimos el tamaño de las etiquetas */
+  }
+
+  /* Campos de texto */
+  .input-field, .form-input {
+    font-size: 0.9rem; /* Ajustamos los campos de texto */
+  }
+
+  /* Botones */
+  #comprasSubmitButton, #submitVentaButton {
+    font-size: 0.9rem; /* Reducimos el tamaño del botón */
+  }
+}
+/* @media para pantallas con un ancho máximo de 768px */
+@media (max-width: 768px) {
+  /* Formularios de ventas */
   #ventasForm {
     padding: 15px;
     max-width: 90%; /* Hace el formulario más estrecho en pantallas pequeñas */
   }
-}
-@media (max-width: 768px) {
+
+  /* Formularios de compras */
   #comprasForm {
     padding: 15px;
     max-width: 90%; /* Hace el formulario un poco más estrecho en pantallas pequeñas */
   }
-}
-@media (max-width: 768px) {
+
+  /* Formularios de mensajes */
   #mensajesForm {
     padding: 15px;
     max-width: 90%; /* Hace el formulario un poco más estrecho en pantallas pequeñas */
   }
+
+  /* Estilo del contenido principal */
+  #mainContent {
+    padding: 20px; /* Menos padding en pantallas pequeñas */
+  }
+
+  /* Secciones */
+  section {
+    padding: 20px;
+  }
+
+  /* Proximamente list, ajusta la vista a una sola columna */
+  .proximamente-list {
+    grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+  }
+
+  /* Títulos en pantallas pequeñas */
+  h2 {
+    font-size: 28px; /* Reducción del tamaño del título en pantallas pequeñas */
+  }
+
+  /* Estilo de los elementos dentro de los items */
+  .item {
+    padding: 15px; /* Menos padding en los items para pantallas pequeñas */
+  }
 }
-@media (max-width: 768px) {
-    #mainContent {
-        padding: 20px; /* Menos padding en pantallas pequeñas */
-    }
 
-    section {
-        padding: 20px;
-    }
-
-    .proximamente-list {
-        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
-    }
-
-    h2 {
-        font-size: 28px; /* Reducción del tamaño del título en pantallas pequeñas */
-    }
-
-    .item {
-        padding: 15px; /* Menos padding en los items para pantallas pequeñas */
-    }
-}
 
