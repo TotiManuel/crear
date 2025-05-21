@@ -1,0 +1,89 @@
+/* src/styles/styleLogin.css */
+
+/* Fondo de la página */
+body {
+  background-color: #f0f2f5;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;  /* Hacer que ocupe toda la altura de la pantalla */
+  text-align: center;
+}
+
+/* Contenedor del formulario */
+.login-container {
+  max-width: 400px;
+  width: 100%;
+  background-color: white;
+  padding: 40px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.login-container:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra al pasar el ratón */
+}
+
+.login-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Formulario */
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container input {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.login-container input:focus {
+  border-color: #28a745;
+  outline: none;
+}
+
+.login-container button {
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+  background-color: #218838;
+}
+
+.login-container p {
+  text-align: center;
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.login-container a {
+  text-decoration: none;
+  color: #28a745;
+  font-weight: bold;
+}
+
+.login-container a:hover {
+  color: #218838;
+}

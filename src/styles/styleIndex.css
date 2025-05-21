@@ -1,0 +1,746 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    height: 100vh;
+}
+.sidebar {
+    width: 240px;
+    background-color: #2e7d32; /* Verde principal */
+    color: white;
+    padding: 30px 20px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: transform 0.3s ease; /* Solo la propiedad transform para la transición */
+}
+.sidebar h2 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.sidebar ul {
+    list-style: none;
+}
+.sidebar ul li {
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease; /* Transición suave para el color */
+}
+.sidebar ul li a i {
+    margin-right: 15px; /* Aumentamos el espacio entre el ícono y el texto */
+}
+.sidebar ul li:hover {
+    background-color: #388e3c; /* Verde más oscuro */
+    transform: translateX(10px); /* Desplazamiento hacia la derecha */
+}
+.sidebar ul li a:hover {
+    color: #f1f1f1; /* Cambia el color del texto al pasar el ratón */
+}
+.sidebar ul li.active {
+    background-color: #1b5e20; /* Verde más oscuro para la opción activa */
+}
+.sidebar ul li.active a {
+    color: #f1f1f1; /* Color de texto claro para la opción activa */
+}
+.container {
+    display: flex;
+    width: 100%;
+}
+#mainContent {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Esto asegura que el contenido no se desplace hacia arriba */
+    padding: 40px 20px;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+    flex-direction: column;
+    background-color: #f4f4f9;
+    padding-top: 50px; /* Añadí un poco de espacio en la parte superior */
+    overflow: hidden;
+}
+section {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 30px;
+    margin: 0 auto; /* Centra el contenido */
+}
+h1 {
+    font-size: 28px;
+    color: #388e3c;
+}
+p {
+    font-size: 18px;
+    color: #388e3c;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+form input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+.form-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px; /* Espacio entre los campos de entrada */
+}
+form button {
+    background: linear-gradient(45deg, #34b233, #1e7e34); /* Gradiente verde con más contraste */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+form button:hover {
+    background: linear-gradient(45deg, #1e7e34, #34b233); /* Gradiente invertido para el hover */
+    transform: scale(1.05);
+}
+form button:active {
+    background: linear-gradient(45deg, #1b5d2f, #1e7e34); /* Gradiente más oscuro para el estado activo */
+    transform: scale(0.98);
+}
+form fieldset {
+  border: 2px solid #28a745; /* Establece el borde alrededor del fieldset */
+  border-radius: 8px; /* Bordes redondeados para el fieldset */
+  padding: 20px; /* Espaciado interno para que el contenido no quede pegado al borde */
+  background-color: #ffffff; /* Fondo blanco para el fieldset */
+  margin: 0; /* Elimina márgenes innecesarios */
+  width: 100%; /* Asegura que el fieldset ocupe el 100% del ancho disponible */
+}
+form fieldset legend {
+  font-size: 20px; /* Tamaño de la fuente del título */
+  font-weight: bold; /* Negrita para el título */
+  color: #28a745; /* Color del texto */
+  margin-bottom: 15px; /* Espacio entre el título y los campos */
+}
+form fieldset label {
+  font-size: 16px; /* Tamaño de la fuente de las etiquetas */
+  color: #333; /* Color de las etiquetas */
+  margin-bottom: 5px; /* Espacio entre la etiqueta y el campo de entrada */
+}
+form fieldset input {
+  padding: 10px; /* Espaciado dentro del campo de entrada */
+  border: 1px solid #ccc; /* Borde gris para los campos */
+  border-radius: 4px; /* Bordes redondeados para los inputs */
+  width: 100%; /* Hace que los inputs ocupen todo el ancho del fieldset */
+  box-sizing: border-box; /* Incluye el padding y el borde dentro del ancho del input */
+  margin-bottom: 10px; /* Espacio entre los campos de entrada */
+}
+form fieldset button {
+  padding: 10px 15px; /* Espaciado interno del botón */
+  background-color: #2e7d32; /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  border: none; /* Elimina el borde por defecto */
+  border-radius: 4px; /* Bordes redondeados para el botón */
+  cursor: pointer; /* Cambia el cursor a mano al pasar por encima */
+  transition: background-color 0.3s ease; /* Transición suave para el hover */
+  font-size: 16px; /* Tamaño de la fuente */
+}
+form fieldset button:hover {
+  background-color: #388e3c; /* Cambia el color al hacer hover */
+}
+form fieldset > * {
+  margin-bottom: 10px; /* Añade un margen entre los elementos dentro del fieldset */
+}
+.shortcut-section {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.shortcut-section ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.shortcut-section li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.shortcut-section li:hover {
+  background-color: #f1f1f1;
+  transform: translateY(-2px);
+}
+.shortcut-section li a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.shortcut-section li a:hover {
+  color: #0056b3;
+}
+.shortcut-section button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.shortcut-section button:hover {
+  background-color: #e03e3e;
+}
+.shortcut-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+.shortcut-section input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+.shortcut-section button.add-shortcut-btn {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+.shortcut-section button.add-shortcut-btn:hover {
+  background-color: #0056b3;
+}
+#proximamenteSection {
+  min-height: 100vh;
+  overflow: visible;
+  flex: 1;
+  margin-top: 70vh; /* Ajuste para mover el contenido hacia abajo */
+  display: flex;
+  flex-direction: column;
+}
+#proximamenteTitle {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #388e3c;
+}
+.proximamente-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #388e3c;
+  margin-top: 0;
+  overflow: auto;
+}
+.item {
+  width: 100%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.item:hover {
+  transform: translateY(-8px);
+  background-color: #e0f7e3;
+}
+.item-icon {
+  font-size: 2rem;
+  margin-right: 10px;
+}
+.item-title {
+  font-size: 20px;
+  color: #388e3c;
+  margin-bottom: 10px;
+  display: block;
+}
+.item-description {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+.footer {
+  width: 100%; /* Ocupa todo el ancho de la página */
+  background-color: #2e7d32; /* Color de fondo */
+  color: white; /* Color del texto */
+  position: absolute; /* Asegura que se quede al fondo */
+  bottom: 0; /* Lo coloca al final de la página */
+  left: 0;
+  padding: 20px 0; /* Añade espacio superior e inferior */
+  text-align: center; /* Centra el contenido dentro del footer */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Agrega una sombra sutil en la parte superior */
+}
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido dentro */
+}
+.footer-content p {
+  color: white;
+  font-size: 14px; /* Tamaño de la fuente */
+}
+.footer-links {
+  list-style: none; /* Elimina los puntos de la lista */
+  display: flex;
+  gap: 20px; /* Espaciado entre los enlaces */
+  padding: 0; /* Elimina el padding por defecto */
+}
+.footer-links li {
+  display: inline-block;
+}
+.footer-links a {
+  color: white; /* Color de los enlaces */
+  text-decoration: none; /* Elimina subrayado */
+  font-size: 14px; /* Tamaño de la fuente */
+}
+.footer-links a:hover {
+  text-decoration: underline; /* Subraya los enlaces al pasar el mouse */
+}
+select {
+    background-color: #fff; /* Fondo blanco para el select */
+    color: #333; /* Texto oscuro */
+    border: 2px solid #28a745; /* Borde verde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 15px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente adecuado */
+    appearance: none; /* Elimina el estilo predeterminado de los navegadores */
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    width: 100%; /* Ajusta el ancho para que ocupe todo el espacio disponible */
+}
+select:focus {
+    border-color: #218838; /* Borde verde más oscuro al enfocar */
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.4); /* Sombra sutil al enfocar */
+}
+option {
+    background-color: #fff; /* Fondo blanco */
+    color: #333; /* Texto oscuro */
+    padding: 10px; /* Espaciado para las opciones */
+    font-size: 16px; /* Tamaño de fuente */
+}
+option:hover {
+    background-color: #28a745; /* Fondo verde al pasar el mouse */
+    color: white; /* Texto blanco cuando se pasa el mouse */
+}
+textarea {
+    background-color: #fff; /* Fondo blanco */
+    color: #333; /* Texto oscuro */
+    border: 2px solid #28a745; /* Borde verde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 12px 15px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente adecuado */
+    width: 100%; /* Ocupa todo el espacio disponible */
+    min-height: 120px; /* Altura mínima */
+    resize: vertical; /* Permite cambiar el tamaño solo verticalmente */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+}
+textarea:focus {
+    border-color: #218838; /* Borde verde más oscuro al enfocar */
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.4); /* Sombra sutil al enfocar */
+    outline: none; /* Elimina el borde azul por defecto */
+}
+textarea.error {
+    border-color: #dc3545; /* Borde rojo si hay error */
+    box-shadow: 0 0 5px rgba(220, 53, 69, 0.4); /* Sombra roja para el error */
+}
+textarea::placeholder {
+    color: #aaa; /* Texto gris para el placeholder */
+    font-style: italic; /* Itálico para el placeholder */
+}
+input[type="text"] {
+    background-color: #fff; /* Fondo blanco */
+    color: #333; /* Texto oscuro */
+    border: 2px solid #28a745; /* Borde verde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 12px 15px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente adecuado */
+    width: 100%; /* Ocupa todo el espacio disponible */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+}
+input[type="text"]:focus {
+    border-color: #218838; /* Borde verde más oscuro al enfocar */
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.4); /* Sombra sutil al enfocar */
+    outline: none; /* Elimina el borde azul por defecto */
+}
+input[type="text"].error {
+    border-color: #dc3545; /* Borde rojo si hay error */
+    box-shadow: 0 0 5px rgba(220, 53, 69, 0.4); /* Sombra roja para el error */
+}
+input[type="text"]::placeholder {
+    color: #aaa; /* Texto gris para el placeholder */
+    font-style: italic; /* Itálico para el placeholder */
+}
+#billetera {
+    background-color: #fff; /* Fondo blanco para la billetera */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centrar el componente */
+}
+#billetera h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2e7d32; /* Verde principal */
+    text-align: center; /* Título centrado */
+    margin-bottom: 20px;
+}
+.billetera-container {
+    display: flex;
+    justify-content: space-between; /* Coloca las columnas a los extremos */
+    gap: 20px; /* Espacio entre las columnas */
+}
+.ventas, .compras {
+    background-color: #f9f9f9; /* Fondo gris claro */
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1; /* Toma el mismo tamaño */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para las columnas */
+}
+.ventas h2, .compras h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #388e3c; /* Verde más oscuro */
+    margin-bottom: 15px;
+    text-align: center; /* Centrado */
+}
+.ventas ul, .compras ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.ventas ul li, .compras ul li {
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+.ventas ul li:hover, .compras ul li:hover {
+    background-color: #e0f7e3; /* Verde muy claro al pasar el ratón */
+}
+button {
+    background-color: #28a745; /* Verde */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el ratón */
+}
+h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2e7d32; /* Verde principal */
+    text-align: center;
+    margin-bottom: 30px;
+}
+#notificacionLabel {
+  color: #388e3c; /* Verde oscuro */
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block; /* Asegura que el texto esté en su propia línea */
+}
+#notificacionInput {
+  background-color: #e8f5e9; /* Fondo verde claro */
+  border: 1px solid #388e3c; /* Borde verde oscuro */
+  color: #388e3c; /* Texto verde oscuro */
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%; /* Se ajusta al tamaño del contenedor */
+  margin-bottom: 20px; /* Espacio debajo del input */
+}
+#notificacionInput:focus {
+  background-color: #c8e6c9; /* Fondo verde más claro cuando está enfocado */
+  border-color: #2e7d32; /* Borde verde más oscuro */
+  outline: none; /* Elimina el borde azul predeterminado en el foco */
+}
+#saveNotificationButton {
+  background-color: #388e3c; /* Verde oscuro */
+  color: white; /* Texto blanco */
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+#saveNotificationButton:hover {
+  background-color: #2e7d32; /* Verde más oscuro en hover */
+}
+#mensajesForm {
+  background-color: #f0f9f4; /* Fondo verde claro */
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px; /* Máxima anchura del formulario */
+  margin: 20px auto; /* Centrado en el contenedor */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor */
+}
+#mensajesLegend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #388e3c; /* Verde oscuro */
+  margin-bottom: 15px;
+  text-align: center;
+}
+#mensajeLabel, #destinatarioLabel {
+  font-size: 1.1rem;
+  color: #388e3c;
+  margin-bottom: 5px;
+  display: block;
+}
+#mensajeInput {
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #388e3c; /* Borde verde */
+  background-color: #e8f5e9; /* Fondo verde claro */
+  color: #388e3c;
+  transition: all 0.3s ease;
+}
+#mensajeInput:focus {
+  border-color: #2e7d32; /* Borde verde más oscuro en focus */
+  outline: none;
+  background-color: #c8e6c9; /* Fondo verde más claro */
+}
+#destinatarioSelect {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #388e3c; /* Borde verde */
+  background-color: #e8f5e9; /* Fondo verde claro */
+  color: #388e3c;
+  transition: all 0.3s ease;
+}
+#destinatarioSelect:focus {
+  border-color: #2e7d32; /* Borde verde más oscuro en focus */
+  outline: none;
+  background-color: #c8e6c9; /* Fondo verde más claro */
+}
+#submitButton {
+  background-color: #388e3c; /* Verde oscuro */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+#submitButton:hover {
+  background-color: #2e7d32; /* Verde más oscuro en hover */
+}
+input, select, textarea {
+  margin-bottom: 15px; /* Separación entre los elementos */
+}
+input:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 8px rgba(0, 150, 136, 0.5); /* Sombra suave en el foco */
+}
+#comprasForm {
+  background-color: #f0f9f4; /* Fondo verde claro */
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px; /* Máxima anchura del formulario */
+  margin: 20px auto; /* Centrado en el contenedor */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor */
+}
+#comprasLegend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #388e3c; /* Verde oscuro */
+  margin-bottom: 15px;
+  text-align: center;
+}
+#productoLabel, #cantidadLabel, #precioLabel {
+  font-size: 1.1rem;
+  color: #388e3c;
+  margin-bottom: 5px;
+  display: block;
+}
+.input-field {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #388e3c; /* Borde verde */
+  background-color: #e8f5e9; /* Fondo verde claro */
+  color: #388e3c;
+  transition: all 0.3s ease;
+  margin-bottom: 15px; /* Separación entre los campos */
+}
+.input-field:focus {
+  border-color: #2e7d32; /* Borde verde más oscuro en focus */
+  outline: none;
+  background-color: #c8e6c9; /* Fondo verde más claro */
+}
+#comprasSubmitButton {
+  background-color: #388e3c; /* Verde oscuro */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+#comprasSubmitButton:hover {
+  background-color: #2e7d32; /* Verde más oscuro en hover */
+}
+#ventasForm {
+  background-color: #f0f9f4; /* Fondo verde claro */
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px; /* Máxima anchura */
+  margin: 20px auto; /* Centrado en el contenedor */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor */
+}
+#ventasFormLegend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #388e3c; /* Verde oscuro */
+  margin-bottom: 15px;
+  text-align: center;
+}
+#productoLabel, #cantidadLabel, #precioLabel {
+  font-size: 1.1rem;
+  color: #388e3c;
+  margin-bottom: 5px;
+  display: block;
+}
+.form-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #388e3c; /* Borde verde */
+  background-color: #e8f5e9; /* Fondo verde claro */
+  color: #388e3c;
+  transition: all 0.3s ease;
+  margin-bottom: 15px; /* Separación entre los campos */
+}
+.form-input:focus {
+  border-color: #2e7d32; /* Borde verde más oscuro en focus */
+  outline: none;
+  background-color: #c8e6c9; /* Fondo verde más claro */
+}
+#submitVentaButton {
+  background-color: #388e3c; /* Verde oscuro */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+#submitVentaButton:hover {
+  background-color: #2e7d32; /* Verde más oscuro en hover */
+}
+@media (max-width: 768px) {
+  #ventasForm {
+    padding: 15px;
+    max-width: 90%; /* Hace el formulario más estrecho en pantallas pequeñas */
+  }
+}
+@media (max-width: 768px) {
+  #comprasForm {
+    padding: 15px;
+    max-width: 90%; /* Hace el formulario un poco más estrecho en pantallas pequeñas */
+  }
+}
+@media (max-width: 768px) {
+  #mensajesForm {
+    padding: 15px;
+    max-width: 90%; /* Hace el formulario un poco más estrecho en pantallas pequeñas */
+  }
+}
+@media (max-width: 768px) {
+    #mainContent {
+        padding: 20px; /* Menos padding en pantallas pequeñas */
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    .proximamente-list {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    }
+
+    h2 {
+        font-size: 28px; /* Reducción del tamaño del título en pantallas pequeñas */
+    }
+
+    .item {
+        padding: 15px; /* Menos padding en los items para pantallas pequeñas */
+    }
+}
+

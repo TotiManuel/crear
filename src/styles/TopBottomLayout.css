@@ -1,0 +1,39 @@
+/* Estilos generales del contenedor */
+.layout-container {
+  display: flex;
+  flex-direction: column; /* Asegura que los elementos se apilen uno encima del otro */
+  height: 30vh; /* Ocupa toda la altura de la ventana */
+  padding: 20px;
+  justify-content: space-between; /* Espaciado entre las secciones */
+}
+
+/* Estilos de la sección superior */
+.top-section {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.top-section h2 {
+  margin-bottom: 10px;
+}
+
+/* Estilos de la sección inferior */
+.bottom-section {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.bottom-section h2 {
+  margin-bottom: 10px;
+}
+
+/* Para pantallas pequeñas, ajustar el diseño */
+@media (max-width: 600px) {
+  .layout-container {
+    padding: 10px;
+  }
+
+  .top-section, .bottom-section {
+    padding: 10px;
+  }
+}
