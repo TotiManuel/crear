@@ -14,28 +14,30 @@ import ProximamentePage from './pages/ProximamentePage';
 
 function App() {
   return (
-    <NotificacionesProvider>
-      <ComprasProvider>
-        <VentasProvider>
-            <Router>
-              <div className="container">
-                <div>
-                  <Routes>
-                    <Route path="/" element={<Login />} />
-                    <Route path="/home" element={<HomePage />} />
-                    <Route path="/mensajes" element={<MensajesPage />} />
-                    <Route path="/notificaciones" element={<NotificacionesPage />} />
-                    <Route path="/compras" element={<ComprasPage />} />
-                    <Route path="/ventas" element={<VentasPage />} />
-                    <Route path="/billetera" element={<BilleteraPage />} />
-                    <Route path="/proximamente" element={<ProximamentePage />} />
-                  </Routes>
+    <BrowserRouter basename="/crear">
+      <NotificacionesProvider>
+        <ComprasProvider>
+          <VentasProvider>
+              <Router>
+                <div className="container">
+                  <div>
+                    <Routes>
+                      <Route path="/" element={<Login />} />
+                      <Route path="/home" element={<HomePage />} />
+                      <Route path="/mensajes" element={<MensajesPage />} />
+                      <Route path="/notificaciones" element={<NotificacionesPage />} />
+                      <Route path="/compras" element={<ComprasPage />} />
+                      <Route path="/ventas" element={<VentasPage />} />
+                      <Route path="/billetera" element={<BilleteraPage />} />
+                      <Route path="/proximamente" element={<ProximamentePage />} />
+                    </Routes>
+                  </div>
                 </div>
-              </div>
-            </Router>
-          </VentasProvider>
-      </ComprasProvider>
-    </NotificacionesProvider>
+              </Router>
+            </VentasProvider>
+        </ComprasProvider>
+      </NotificacionesProvider>
+    </BrowserRouter>
   );
 }
 
